@@ -3,6 +3,7 @@ body {
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
   font-style: normal;
+  text-decoration: none;
 }
 .navbar {
   display: flex;
@@ -59,6 +60,11 @@ body {
   height: 30px;
   border-radius: 50%;
 }
+
+.uniqorn-pic {
+  height: 95px;
+}
+
 .banner {
   background-color: #EAF0EB;
   display: flex;
@@ -70,7 +76,7 @@ body {
 }
 .banner-text {
   color: #FF9A9E; /* Pastel blue text color */
-  font-size: 80px;
+  font-size: 75px;
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
   font-style: normal;/* Large text size */

@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container vh-100">
   <div class="my-4">
     <h1>Uniqorns</h1>
   </div>
 
-  <div class="cards">
+  <div class="cards mb-5">
     <% @uniqorns.each do |uniqorn| %>
       <%= link_to () do %>
         <div class="card-trip rounded-3">
@@ -30,5 +30,8 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= link_to "List your Uniqorn", new_uniqorn_path, class: "form-actions btn btn-lg custom-button" %>
   </div>
 </div>
