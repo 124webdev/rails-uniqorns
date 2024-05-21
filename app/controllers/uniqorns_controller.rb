@@ -1,4 +1,5 @@
 class UniqornsController < ApplicationController
+  before_action :set_uniqorn, only: [:show]
 
   def index
     @uniqorns = Uniqorn.all
@@ -27,7 +28,11 @@ class UniqornsController < ApplicationController
 
   private
 
+  def set_uniqorn
+    @uniqorn = Uniqorn.find(params[:id])
+  end
+
   def uniqorn_params
-    params.require(:uniqorn).permit(:name, :age, :can_fly, :color, :speed)
+    params.require(:uniqorn).permit(:id, :name, :age, :can_fly, :color, :speed)
   end
 end
