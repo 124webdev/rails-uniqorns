@@ -10,11 +10,9 @@ class UniqornsController < ApplicationController
 
   end
 
-
   def new
     @uniqorn = Uniqorn.new
   end
-
 
   def create
     @uniqorn = Unqiorn.new(uniqorn_params)
@@ -24,7 +22,6 @@ class UniqornsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
 
   private
 
