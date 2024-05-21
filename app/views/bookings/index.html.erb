@@ -1,2 +1,27 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+  <div class="my-4">
+    <h1>My Bookings</h1>
+  </div>
+
+  <div class="mb-5 d-flex flex-column justify-content-center">
+    <% 10.times do %>
+      <%= link_to (), class: "d-flex  justify-content-center" do %>
+        <div class="card-product w-50 mb-4">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
+          />
+          <div class="d-flex justify-content-between w-100 me-3">
+            <div class="card-product-infos">
+              <h2>Uniqorn name</h2>
+              <p class="fs-5 fw-semibold">02.06.2024 - 13.06.2024</p>
+            </div>
+            <div>
+              <p class="fs-5 fw-semibold"><strong class="fs-4">Total:
+                </strong>99.00$</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
