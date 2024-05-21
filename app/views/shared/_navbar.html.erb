@@ -9,7 +9,7 @@
       <%= link_to "Book a unicorn", uniqorns_path %>
       <%= link_to "Bookings", uniqorns_path %>
       <% if user_signed_in? %>
-        <%= link_to "Sign out", uniqorns_path %>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
         <div class="pt-2">
           <img
             src='https://kitt.lewagon.com/placeholder/users/arthur-littm'

@@ -6,8 +6,10 @@
     <input type="number" class="search-input" placeholder="How Many">
     <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
+  <% unless user_signed_in? %>
     <div class="d-flex">
     <%= link_to "Log In", new_user_session_path, class: "btn m-4 btn-lg custom-button" %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn m-4 btn-lg custom-button" %>
+  <% end %>
   </div>
 </div>
