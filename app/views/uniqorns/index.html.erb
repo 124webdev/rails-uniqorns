@@ -1,30 +1,34 @@
-<body>
-   <div class="container">
-    <div class="">
-        <h1>uniqorns</h1>
-    </div>
+<div class="container">
+  <div class="">
+    <h1>uniqorns</h1>
+  </div>
 
-
-    <div class="cards">
+  <div class="cards">
+    <% @uniqorns.each do |uniqorn| %>
       <%= link_to () do %>
         <div class="card-trip rounded-3">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s" />
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
+          />
           <div class="card-trip-infos">
             <div>
-              <h2>Uniqorn Name</h2>
+              <h2><%= uniqorn.name %></h2>
               <div class="d-flex">
-                <p class="pe-2">Age: 18</p>
-                <p class="pe-2">Speed: 5km/h</p>
+                <p class="fs-5 pe-2">Age:
+                  <%= uniqorn.age %>
+                </p>
+                <p class="fs-5 px-2">•</p>
+                <p class="fs-5 pe-2">Speed:
+                  <%= uniqorn.speed %></p>
               </div>
             </div>
             <div>
-              <h2 class="card-trip-pricing">£99.99</h2>
-              <p>Per day</p>
+              <h2 class="card-trip-pricing">£<%= uniqorn.price_per_day %></h2>
+              <p class="fs-5">Per day</p>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </div>
-</body>
-</html>
