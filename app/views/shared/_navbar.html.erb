@@ -7,7 +7,11 @@
   <div class="right-section">
     <div class="tabs">
       <%= link_to "Book a unicorn", uniqorns_path %>
-      <%= link_to "Bookings", uniqorns_path %>
+      <% if user_signed_in? %>
+        <%= link_to "Bookings", bookings_path %>
+      <% else %>
+        <%= link_to "Bookings", new_user_session_path %>
+      <% end %>
       <% if user_signed_in? %>
         <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
         <div class="pt-2">
