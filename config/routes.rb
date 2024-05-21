@@ -9,10 +9,18 @@ Rails.application.routes.draw do
   # get 'uniqorns/index'
   devise_for :users
   root to: "pages#home"
-  resources :uniqorns, only: %i[show index new create]
-  resources :bookings, only: %i[show index new create confirm]
-  resources :reviews, only: %i[show index new create]
 
+  resources :uniqorns, only: %i[show index new create] do
+    resources :bookings, only: %i[new create]
+    resources :reviews, only: %i[new create]
+  end
+
+  resources :bookings, only: %i[show index]
+  resources :reviews, only: %i[show index]
+  
+
+  patch 'bookings/:id/confirm', to: 'bookings#confirm'
+  patch 'bookings/:id/reject', to: 'bookings#reject'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

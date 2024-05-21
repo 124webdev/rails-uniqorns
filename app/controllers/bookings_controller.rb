@@ -15,6 +15,16 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
   end
 
+def reject
+@booking = Booking.find(params[:id])
+@booking.rejected!
+end
+
+def confirm
+  @booking = Booking.find(params[:id])
+  @booking.accepted!
+end
+
 private
 
   def bookings_params
