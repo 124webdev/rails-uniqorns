@@ -1,0 +1,18 @@
+<div class="container w-25 pb-4">
+  <h3 class="text-center pt-2">List Your UniQorn :)</h3>
+
+  <%= simple_form_for @uniqorn do |f| %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :color %>
+      <%= f.input :speed %>
+      <%= f.input :can_fly %>
+    </div>
+
+    <div class="form-actions btn btn-lg custom-button">
+      <%= f.button :submit, "List your Uniqorn" %>
+    </div>
+
+  <% end %>
+</div>
