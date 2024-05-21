@@ -10,6 +10,7 @@ body {
   justify-content: space-between;
   background: linear-gradient(to left, #FF9A9E, #FAD0C4, #AEDBF0);
   padding: 10px 20px;
+  padding-top: 0px;
   color: white;
 }
 .navbar .logo img {
@@ -94,4 +95,38 @@ body {
 }
 .search-button:hover {
   background-color: #6DAECF; /* Darker shade for hover effect */
+}
+
+.tabs a:hover {
+  animation: rainbow 2s linear infinite;
+  color: transparent; /* To hide the text color */
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+@keyframes rainbow {
+  0% { background-color: red; }
+  16% { background-color: orange; }
+  33% { background-color: yellow; }
+  50% { background-color: green; }
+  66% { background-color: blue; }
+  83% { background-color: indigo; }
+  100% { background-color: violet; }
+}
+
+.custom-button {
+  padding: 8px 16px;
+  border: 2px solid #8ECAE6;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  outline: none;
+}
+
+.custom-button:hover {
+  animation: rainbow 2s linear infinite;
+  color: transparent; /* To hide the text color */
+  background-clip: text;
+  -webkit-background-clip: text;
 }

@@ -1,34 +1,13 @@
-<body class="vh-100">
-  <div class="navbar sticky-top">
-    <div class="logo">
-      <%= image_tag "logo_uniqorn_trans.png", alt: "Logo" %>
-    </div>
-    <div class="right-section">
-      <div class="tabs">
-        <a href="#home">Home</a>
-        <a href="#all-unicorns">Book a Unicorn</a>
-      </div>
-      <div class="menu-button">
-        <div class="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="profile-pic">
-          <img src="https://via.placeholder.com/30" alt="Profile Picture">
-        </div>
-      </div>
-    </div>
+<div class="banner h-100">
+  <h1 class="banner-text">Unique Unicorns for Rent</h1>
+  <div class="search-bar">
+    <input type="text" class="search-input" placeholder="Where">
+    <input type="date" class="search-input">
+    <input type="number" class="search-input" placeholder="How Many">
+    <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
-
-  <div class="banner h-100">
-    <h1 class="banner-text">Unique Unicorns for Rent</h1>
-      <div class="search-bar">
-          <input type="text" class="search-input" placeholder="Where">
-          <input type="date" class="search-input">
-          <input type="number" class="search-input" placeholder="How Many">
-          <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
+    <div class="d-flex">
+    <%= link_to "Log In", new_user_session_path, class: "btn m-4 btn-lg custom-button" %>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn m-4 btn-lg custom-button" %>
   </div>
-</body>
-</html>
+</div>

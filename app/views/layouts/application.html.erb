@@ -17,12 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   </head>
 
-  <body>
-    <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
+  <body class="vh-100">
+    <%= render "shared/navbar" %>
+    <%= yield %>
   </body>
   <footer>
    <%= render 'shared/footer' %>

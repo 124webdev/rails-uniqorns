@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_095229) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_05_20_144136) do
->>>>>>> master
+ActiveRecord::Schema[7.1].define(version: 2024_05_21_133954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "uniqorn_id", null: false
+    t.bigint "user_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uniqorn_id"], name: "index_bookings_on_uniqorn_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "rating"
+    t.string "content"
+  end
 
   create_table "uniqorns", force: :cascade do |t|
     t.string "name"
@@ -43,8 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_20_144136) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
+  add_foreign_key "bookings", "uniqorns"
+  add_foreign_key "bookings", "users"
   add_foreign_key "uniqorns", "users"
-=======
->>>>>>> master
 end
