@@ -16,6 +16,18 @@ class BookingsController < ApplicationController
   end
 end
 
+# def reject
+#   @booking.update!(status: :rejected)
+# end
+
+def reject
+@booking = Booking.find(params[:id])
+@booking.rejected!
+end
+
+def confirm
+  @booking.update!(status: :accepted)
+end
 
 private
 
