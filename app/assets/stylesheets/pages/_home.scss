@@ -96,6 +96,7 @@ body {
 .search-button:hover {
   background-color: #6DAECF; /* Darker shade for hover effect */
 }
+
 .tabs a:hover {
   animation: rainbow 2s linear infinite;
   color: transparent; /* To hide the text color */
@@ -111,4 +112,21 @@ body {
   66% { background-color: blue; }
   83% { background-color: indigo; }
   100% { background-color: violet; }
+}
+
+.custom-button {
+  padding: 8px 16px;
+  border: 2px solid #8ECAE6;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-size: 1em;
+  font-weight: bold;
+  outline: none;
+}
+
+.custom-button:hover {
+  animation: rainbow 2s linear infinite;
+  color: transparent; /* To hide the text color */
+  background-clip: text;
+  -webkit-background-clip: text;
 }
