@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
   resources :uniqorns, only: %i[show index new create] do
     resources :bookings, only: %i[new create]
-    resources :reviews, only: %i[new create]
   end
 
-  resources :bookings, only: %i[show index]
+  resources :bookings, only: %i[show index] do
+    resources :reviews, only: %i[new create]
+  end
   resources :reviews, only: %i[show index]
 
   patch 'bookings/:id/confirm', to: 'bookings#confirm'

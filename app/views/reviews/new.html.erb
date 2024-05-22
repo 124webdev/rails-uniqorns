@@ -1,14 +1,14 @@
 <div class="container w-75">
   <div class="p-2">
 
-    <%= simple_form_for @review do |f| %>
+    <%= simple_form_for [ @booking, @review] do |f| %>
       <div class="form-inputs">
         <%= f.input :content, :placeholder => "Title, Content" %>
         <%= f.input :rating %>
       </div>
 
       <div class="form-actions btn btn-lg custom-button">
-        <%= f.button :submit, "Leave a reaview!" %>
+        <%= f.button :submit, "Leave a review!" %>
       </div>
 
     <% end %>
