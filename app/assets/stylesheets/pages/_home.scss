@@ -94,6 +94,7 @@ body {
   font-size: 0.9em;
 
   outline: none;
+  width: 200px;
 }
 
 .search-button {
@@ -150,6 +151,11 @@ body {
   font-size: 0.9em;
   font-weight: bold;
   outline: none;
+  width: 120px;
+}
+
+.custom-button + .custom-button {
+  margin-left: 10px;
 }
 
 .custom-button:hover {
