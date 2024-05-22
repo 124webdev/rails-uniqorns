@@ -7,7 +7,6 @@ class UniqornsController < ApplicationController
 
   def show
     @uniqorn = Uniqorn.find(params[:id])
-
   end
 
   def new
@@ -15,7 +14,8 @@ class UniqornsController < ApplicationController
   end
 
   def create
-    @uniqorn = Unqiorn.new(uniqorn_params)
+    @uniqorn = Uniqorn.new(uniqorn_params)
+    @uniqorn.user = User.find(current_user.id)
     if @uniqorn.save
       redirect_to uniqorns_path(@uniqorn)
     else
@@ -30,6 +30,6 @@ class UniqornsController < ApplicationController
   end
 
   def uniqorn_params
-    params.require(:uniqorn).permit(:id, :name, :age, :can_fly, :color, :speed)
+    params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed)
   end
 end

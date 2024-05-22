@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'bookings/show'
   get 'bookings/new'
   get 'bookings/create'
+  get 'pages/profile'
   # get 'uniqorns/index'
   devise_for :users
   root to: "pages#home"

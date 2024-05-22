@@ -15,17 +15,17 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
   end
 
-def reject
-@booking = Booking.find(params[:id])
-@booking.rejected!
-end
+  def reject
+    @booking = Booking.find(params[:id])
+    @booking.rejected!
+  end
 
-def confirm
-  @booking = Booking.find(params[:id])
-  @booking.accepted!
-end
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.accepted!
+  end
 
-private
+  private
 
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
