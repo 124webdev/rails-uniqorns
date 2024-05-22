@@ -23,7 +23,7 @@
               </div>
             </div>
             <div>
-              <h2 class="card-trip-pricing">£<%= uniqorn.price_per_day %></h2>
+              <h2 class="card-trip-pricing"><%= uniqorn.price_per_day %>€</h2>
               <p class="fs-5">Per day</p>
             </div>
           </div>
@@ -32,6 +32,6 @@
     <% end %>
   </div>
   <div class="d-flex justify-content-center">
+    <% if user_signed_in? %>
     <%= link_to "List your Uniqorn", new_uniqorn_path, class: "form-actions btn btn-lg custom-button" %>
-  </div>
-</div>
+<% end %>
