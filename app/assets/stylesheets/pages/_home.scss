@@ -1,4 +1,5 @@
 body {
+  background-color: #eaf0eb;
   margin: 0;
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
@@ -9,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to left, #FF9A9E, #FAD0C4, #AEDBF0);
+  background: linear-gradient(to left, #ff9a9e, #fad0c4, #aedbf0);
   padding: 10px 20px;
   padding-top: 0px;
   color: white;
@@ -30,7 +31,9 @@ body {
   color: white;
   text-decoration: none;
   padding: 8px 16px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   font-size: 26px;
 }
 .navbar .tabs a:hover {
@@ -66,7 +69,7 @@ body {
 }
 
 .banner {
-  background-color: #EAF0EB;
+  background-color: #eaf0eb;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,17 +78,17 @@ body {
   text-align: center;
 }
 .banner-text {
-  color: #FF9A9E; /* Pastel blue text color */
+  color: #ff9a9e; /* Pastel blue text color */
   font-size: 75px;
   font-family: "Amatic SC", sans-serif;
   font-weight: 700;
-  font-style: normal;/* Large text size */
+  font-style: normal; /* Large text size */
 }
 .search-input {
   padding: 10px;
-  border: 2px solid #8ECAE6; /* Border color matching the text */
+  border: 2px solid #8ecae6; /* Border color matching the text */
   border-radius: 20px;
-  margin-top: 30px;/* Rounded corners */
+  margin-top: 30px; /* Rounded corners */
   font-size: 1em;
   outline: none;
 }
@@ -93,14 +96,14 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 20px; /* Rounded corners */
-  background-color: #8ECAE6; /* Button background color matching the text */
+  background-color: #8ecae6; /* Button background color matching the text */
   color: white;
   font-size: 1em;
   cursor: pointer;
-  font-family: 'Pacifico', cursive; /* Consistent font with the banner text */
+  font-family: "Pacifico", cursive; /* Consistent font with the banner text */
 }
 .search-button:hover {
-  background-color: #6DAECF; /* Darker shade for hover effect */
+  background-color: #6daecf; /* Darker shade for hover effect */
 }
 
 .tabs a:hover {
@@ -111,18 +114,32 @@ body {
 }
 
 @keyframes rainbow {
-  0% { background-color: red; }
-  16% { background-color: orange; }
-  33% { background-color: yellow; }
-  50% { background-color: green; }
-  66% { background-color: blue; }
-  83% { background-color: indigo; }
-  100% { background-color: violet; }
+  0% {
+    background-color: red;
+  }
+  16% {
+    background-color: orange;
+  }
+  33% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: green;
+  }
+  66% {
+    background-color: blue;
+  }
+  83% {
+    background-color: indigo;
+  }
+  100% {
+    background-color: violet;
+  }
 }
 
 .custom-button {
   padding: 8px 16px;
-  border: 2px solid #8ECAE6;
+  border: 2px solid #8ecae6;
   border-radius: 20px;
   margin-top: 30px;
   font-size: 1em;
