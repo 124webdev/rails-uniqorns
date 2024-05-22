@@ -14,10 +14,12 @@
         <%= link_to "Bookings", bookings_path %>
         <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
         <div class="pt-2">
-          <img
-            src='https://kitt.lewagon.com/placeholder/users/arthur-littm'
-            class="avatar"
-          />
+          <%= link_to () do %>
+            <img
+              src='https://kitt.lewagon.com/placeholder/users/arthur-littm'
+              class="avatar"
+            />
+          <% end %>
         </div>
       <% end %>
     </div>
