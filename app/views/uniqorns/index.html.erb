@@ -5,7 +5,7 @@
 
   <div class="cards mb-5">
     <% @uniqorns.each do |uniqorn| %>
-      <%= link_to () do %>
+      <%= link_to uniqorn_path(uniqorn) do %>
         <div class="card-trip rounded-3">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
@@ -23,7 +23,7 @@
               </div>
             </div>
             <div>
-              <h2 class="card-trip-pricing">£<%= uniqorn.price_per_day %></h2>
+              <h2 class="card-trip-pricing"><%= uniqorn.price_per_day %>€</h2>
               <p class="fs-5">Per day</p>
             </div>
           </div>
@@ -32,6 +32,8 @@
     <% end %>
   </div>
   <div class="d-flex justify-content-center">
+    <% if user_signed_in? %>
     <%= link_to "List your Uniqorn", new_uniqorn_path, class: "form-actions btn btn-lg custom-button" %>
-  </div>
+    <% end %>
+    </div>
 </div>
