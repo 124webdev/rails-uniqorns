@@ -1,4 +1,4 @@
-<div class="container vh-100">
+<div class="container">
   <div class="my-4">
     <h1>Uniqorns</h1>
   </div>
@@ -22,16 +22,18 @@
                   <%= uniqorn.speed %></p>
               </div>
             </div>
+
             <div>
               <h2 class="card-trip-pricing"><%= uniqorn.price_per_day %>€</h2>
               <p class="fs-5">Per day</p>
             </div>
+
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center mb-4">
     <% if user_signed_in? %>
     <%= link_to "List your Uniqorn", new_uniqorn_path, class: "form-actions btn btn-lg custom-button" %>
     <% end %>
