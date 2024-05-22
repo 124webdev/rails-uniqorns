@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @user = User.find(current_user.id)
+    @bookings = Booking.where(user: @user)
   end
 
   def show
@@ -9,10 +10,21 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @uniqorn = Uniqorn.find(params[:uniqorn_id])
   end
 
   def create
     @booking = Booking.new(bookings_params)
+    @user = User.find(current_user.id)
+    @uniqorn = Uniqorn.find(params[:uniqorn_id])
+    @booking.user = @user
+    @booking.uniqorn = @uniqorn
+
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def reject
