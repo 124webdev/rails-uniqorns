@@ -88,6 +88,7 @@ body {
   margin-top: 30px;/* Rounded corners */
   font-size: 1em;
   outline: none;
+  width: 200px;
 }
 .search-button {
   padding: 10px 20px;
@@ -128,6 +129,11 @@ body {
   font-size: 1em;
   font-weight: bold;
   outline: none;
+  width: 120px;
+}
+
+.custom-button + .custom-button {
+  margin-left: 10px;
 }
 
 .custom-button:hover {
