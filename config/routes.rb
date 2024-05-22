@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[show index]
   resources :reviews, only: %i[show index]
-  
+
 
   patch 'bookings/:id/confirm', to: 'bookings#confirm'
   patch 'bookings/:id/reject', to: 'bookings#reject'
@@ -33,4 +33,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "pages/privacypolicy", to: "pages#privacypolicy"
 end
