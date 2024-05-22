@@ -82,13 +82,15 @@ body {
   font-style: normal;/* Large text size */
 }
 .search-input {
+  font-family: "Comfortaa";
   padding: 10px;
   border: 2px solid #8ECAE6; /* Border color matching the text */
   border-radius: 20px;
   margin-top: 30px;/* Rounded corners */
-  font-size: 1em;
+  font-size: 0.9em;
   outline: none;
 }
+
 .search-button {
   padding: 10px 20px;
   border: none;
@@ -121,11 +123,12 @@ body {
 }
 
 .custom-button {
+  font-family: "Comfortaa";
   padding: 8px 16px;
   border: 2px solid #8ECAE6;
   border-radius: 20px;
   margin-top: 30px;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   outline: none;
 }
