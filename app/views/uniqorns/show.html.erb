@@ -1,25 +1,36 @@
 <div class="container d-flex flex-column vh-100 align-items-center">
 
   <div class="pt-3 py-3 h-50 w-75">
-    <div class="h-100 card-product align-items-start">
-
-        <img class="w-50" src="https://images.unsplash.com/photo-1646692851761-e2bec84312f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHVuaWNvcm5zfGVufDB8fDB8fHww" />
-        <div class="m-3 position-relative d-flex flex-column justify-content-center">
-          <h2 class="">UNIQORN name</h2>
-          <p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas cum sequi, illo, vitae nostrum, minima numquam eaque sint dolor repudiandae laborum nisi molestias qui ab?
-            Delectus voluptate veritatis eaque eum, numquam iste ad, corporis expedita eius quisquam cupiditate commodi quam asperiores.</p>
-            <p>Name: </p>
-            <p>Age: </p>
-            <p>Color: </p>
-            <p>Can fly:</p>
-            <p>Speed: </p>
-            <%= link_to "Book Now!", new_uniqorn_path, class: "form-actions btn custom-button position-absolute bottom-0 end-0" %>
-        </div>
-
-
+    <div class="w-100 align-items-start d-flex" style="border: solid 1px #aedbf0;">
+      <img
+        class="w-100"
+        src="https://images.unsplash.com/photo-1646692851761-e2bec84312f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHVuaWNvcm5zfGVufDB8fDB8fHww"
+      />
+      <div class="mx-3 position-relative w-50 p-4 d-flex flex-column justify-content-center">
+        <h2 class="fs-2"><%= @uniqorn.name %></h2>
+        <p class="fs-4">Age:
+          <%= @uniqorn.age %>
+        </p>
+        <p class="fs-4">Color:
+          <%= @uniqorn.color %>
+        </p>
+        <p class="fs-4">Can fly?:
+          <% if @uniqorn.can_fly %>
+            Yes!
+          <% else %>
+            No!
+          <% end %>
+        <p class="fs-4">Speed:
+          <%= @uniqorn.speed %>
+        </p>
+        <%= link_to "Book Now!",
+        new_uniqorn_booking_path(@uniqorn),
+        class: "form-actions btn w-100 custom-button"%>
+      </div>
     </div>
+    <h1 class="mt-4">Reviews</h1>
 
-    <div class="d-flex row align-items-center mt-3 p-2">
+    <div class="d-flex row align-items-center mt-2">
 
       <div class="col-sm-3">
         <div class="card border-info">
