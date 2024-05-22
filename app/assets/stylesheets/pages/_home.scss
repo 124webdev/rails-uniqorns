@@ -86,13 +86,18 @@ body {
   font-style: normal; /* Large text size */
 }
 .search-input {
+  font-family: "Comfortaa";
   padding: 10px;
   border: 2px solid #8ecae6; /* Border color matching the text */
   border-radius: 20px;
-  margin-top: 30px; /* Rounded corners */
-  font-size: 1em;
+
+  margin-top: 30px;/* Rounded corners */
+  font-size: 0.9em;
+
   outline: none;
+  width: 200px;
 }
+
 .search-button {
   padding: 10px 20px;
   border: none;
@@ -139,13 +144,19 @@ body {
 }
 
 .custom-button {
+  font-family: "Comfortaa";
   padding: 8px 16px;
   border: 2px solid #8ecae6;
   border-radius: 20px;
   margin-top: 30px;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold;
   outline: none;
+  width: 120px;
+}
+
+.custom-button + .custom-button {
+  margin-left: 10px;
 }
 
 .custom-button:hover {
