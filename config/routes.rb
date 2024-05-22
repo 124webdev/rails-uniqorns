@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   patch 'bookings/:id/confirm', to: 'bookings#confirm'
   patch 'bookings/:id/reject', to: 'bookings#reject'
+
+  get "pages/privacypolicy", to: "pages#privacypolicy"
+
 end
