@@ -38,57 +38,23 @@
 
     <div class="d-flex row align-items-center mt-2">
 
-      <div class="col-sm-3">
-        <div class="card border-info">
-          <div class="card-header text-center">
+      <% last_reviews = Review.last(4).reverse %>
+<div class="d-flex row align-items-center mt-2">
+  <% last_reviews.each_with_index do |review, index| %>
+    <div class="col-sm-3">
+      <div class="card border-<%= ['info', 'success', 'primary', 'warning'][index] %>">
+        <div class="card-header text-center">
           Anonymous
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text"><% @review = Review.last %>
-            <%= @review.content %></p>
-          </div>
+        </div>
+        <div class="card-body">
+          <h3></h3>
+          <p class="card-text"><%= review.content %></p>
         </div>
       </div>
-
-      <div class="col-sm-3">
-        <div class="card border-success">
-          <div class="card-header text-center">
-            Anonymous
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text"><p class="card-text"><% @review = Review.last(2).first%>
-            <%= @review.content %></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card border-primary">
-          <div class="card-header text-center">
-            Anonymous
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text"><% @review = Review.last(3).first %>
-            <%= @review.content %></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card border-warning">
-          <div class="card-header text-center">
-            Anonymous
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text"><p class="card-text"><% @review = Review.last(4).first %>
-            <%= @review.content %></p>
-          </div>
-        </div>
-      </div>
+    </div>
+  <% end %>
+  
+</div>
 
     </div>
 
