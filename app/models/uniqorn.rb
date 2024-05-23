@@ -4,8 +4,8 @@ class Uniqorn < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
-  validates :price_per_day, presence: true
-  validates :age, presence: true
-  validates :speed, presence: true
+  validates :price_per_day, presence: true, comparison: { greater_than_or_equal_to: 1, message: "cannot be negative value" }
+  validates :age, presence: true, comparison: { greater_than_or_equal_to: 1, message: "cannot be negative number" }
+  validates :speed, presence: true, comparison: { greater_than_or_equal_to: 1, message: "cannot be less than 1km/h" }
   validates :photo, presence: true
 end
