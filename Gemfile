@@ -77,6 +77,6 @@ end
 
 # added gems
 gem "devise"
-
 #added cloudinary
 gem "cloudinary"
+gem "pg_search"

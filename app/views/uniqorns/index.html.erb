@@ -1,6 +1,18 @@
 <div class="container">
   <div class="my-4">
     <h1>Uniqorns</h1>
+    <%= form_with url: uniqorns_path, method: :get, class: "search-bar" do %>
+      <%= text_field_tag :name, params[:name], class: "search-input", placeholder: "Name" %>
+      <%= date_field_tag :start_date,
+      params[:start_date],
+      class: "search-input",
+      placeholder: "From" %>
+      <%= date_field_tag :end_date,
+      params[:end_date],
+      class: "search-input",
+      placeholder: "Until" %>
+      <%= submit_tag "Search", class: "search-button fa-solid" %>
+    <% end %>
   </div>
 
   <div class="cards mb-5">
@@ -35,7 +47,9 @@
   </div>
   <div class="d-flex justify-content-center mb-4">
     <% if user_signed_in? %>
-    <%= link_to "List your Uniqorn", new_uniqorn_path, class: "form-actions btn btn-lg custom-button" %>
+      <%= link_to "List your Uniqorn",
+      new_uniqorn_path,
+      class: "form-actions btn btn-lg custom-button" %>
     <% end %>
-    </div>
+  </div>
 </div>
