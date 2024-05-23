@@ -2,7 +2,11 @@ class UniqornsController < ApplicationController
   before_action :set_uniqorn, only: [:show]
 
   def index
-    @uniqorns = Uniqorn.all
+    if user_signed_in?
+      @uniqorns = Uniqorn.where.not(user: current_user.id)
+    else
+      @uniqorns = Uniqorn.all
+    end
   end
 
   def show
@@ -31,6 +35,6 @@ class UniqornsController < ApplicationController
   end
 
   def uniqorn_params
-    params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed)
+    params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed, :photo)
   end
 end

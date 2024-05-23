@@ -1,11 +1,10 @@
-<div class="container d-flex flex-column vh-100 align-items-center">
+<div class="container d-flex flex-column align-items-center">
 
   <div class="pt-3 py-3 h-50 w-75">
-    <div class="w-100 align-items-start d-flex" style="border: solid 1px #aedbf0;">
-      <img
-        class="w-100"
-        src="https://images.unsplash.com/photo-1646692851761-e2bec84312f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHVuaWNvcm5zfGVufDB8fDB8fHww"
-      />
+    <div class="w-100 d-flex" style="border: solid 1px #aedbf0;">
+      <div class="w-100 d-flex justify-content-center align-items-center">
+        <%= cl_image_tag @uniqorn.photo.key, class: "show_image" %>
+      </div>
       <div class="mx-3 position-relative w-50 p-4 d-flex flex-column justify-content-center">
         <h2 class="fs-2"><%= @uniqorn.name %></h2>
         <p class="fs-4">Age:
@@ -20,6 +19,7 @@
           <% else %>
             No!
           <% end %>
+        </p>
         <p class="fs-4">Speed:
           <%= @uniqorn.speed %>
         </p>
