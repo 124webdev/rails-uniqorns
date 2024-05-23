@@ -6,19 +6,21 @@
 
   <div class="d-flex flex-column justify-content-center mb-5">
     <% @bookings.each do |booking| %>
-      <%= link_to uniqorn_path(booking.uniqorn), class: "d-flex  justify-content-center" do %>
-        <div class="card-product w-50 mb-4">
+        <div class="d-flex justify-content-center align-items-center mt-4">
+      <div class="d-flex w-50 justify-content-center">
+        <div class="card-product w-100 ">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
           />
-          <div class="d-flex justify-content-between w-100 me-3">
+          <div class="d-flex align-items-center justify-content-between w-100 me-3">
             <div class="card-product-infos">
               <h2><%= booking.uniqorn.name %></h2>
               <p class="fs-5 fw-semibold"><%= booking.start_date %> - <%= booking.end_date %></p>
             </div>
             <div>
+              <% booked_days = booking.end_date - booking.start_date  %>
               <p class="fs-5 fw-semibold"><strong class="fs-4">Total:
-                </strong>99.00€</p>
+                </strong><%= booked_days.to_i * booking.uniqorn.price_per_day %> €</p>
               <% if booking.status == "pending" %>
                 <div class="fs-3" style="color: orange;" >
                 <%= booking.status %>
@@ -31,9 +33,17 @@
                 <div class="fs-3" style="color:#39efa3;" >
                 <%= booking.status %>
                 </div>
+      <%= link_to () do %>
+        <div class="fs-5 text-decoration-underline" >Leave a review!</div>
+      <% end %>
               <% end %>
             </div>
           </div>
+        </div>
+        </div>
+        </div>
+              <% if booking.status == "accepted" %>
+        <div class="d-flex justify-content-center">
         </div>
       <% end %>
     <% end %>

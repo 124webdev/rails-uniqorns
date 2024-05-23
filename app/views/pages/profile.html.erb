@@ -17,8 +17,9 @@
                 <%= booking.end_date %></p>
             </div>
             <div>
+              <% booked_days = booking.end_date - booking.start_date  %>
               <p class="fs-5 fw-semibold"><strong class="fs-4">Total:
-                </strong>99.00$</p>
+                </strong><%= booked_days.to_i * booking.uniqorn.price_per_day %> €</p>
               <% if booking.status == "pending" %>
                 <div class="d-flex justify-content-evenly mt-2">
                   <%= link_to confirm_booking_path(booking) do %>
