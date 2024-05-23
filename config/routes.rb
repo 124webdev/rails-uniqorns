@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'pages/profile'
-  # get 'uniqorns/index'
   devise_for :users
   root to: "pages#home"
 
@@ -13,9 +11,9 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: %i[show index]
 
-  patch 'bookings/:id/confirm', to: 'bookings#confirm'
-  patch 'bookings/:id/reject', to: 'bookings#reject'
-
   get "pages/privacypolicy", to: "pages#privacypolicy"
+  get 'pages/profile'
+  get "pages/confirm", to: "pages#confirm", as: "confirm_booking"
+  get "pages/reject", to: "pages#reject", as: "reject_booking"
 
 end

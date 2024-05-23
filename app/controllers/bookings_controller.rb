@@ -28,12 +28,12 @@ class BookingsController < ApplicationController
   end
 
   def reject
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:format])
     @booking.rejected!
   end
 
   def confirm
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:format])
     @booking.accepted!
   end
 
