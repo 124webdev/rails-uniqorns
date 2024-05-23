@@ -44,53 +44,22 @@
 
     <div class="d-flex row align-items-center mt-2">
 
-      <div class="col-sm-3">
-        <div class="card border-info">
-          <div class="card-header text-center">
-            Review Title!
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
-          </div>
+      <% last_reviews = Review.last(4).reverse %>
+<div class="d-flex row align-items-center mt-2">
+  <% last_reviews.each_with_index do |review, index| %>
+    <div class="col-sm-3">
+      <div class="card border-<%= ['info', 'success', 'primary', 'warning'][index] %>">
+        <div class="card-header text-center">
+          Anonymous
+        </div>
+        <div class="card-body">
+          <h3></h3>
+          <p class="card-text"><%= review.content %></p>
         </div>
       </div>
-
-      <div class="col-sm-3">
-        <div class="card border-success">
-          <div class="card-header text-center">
-            Review Title!
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card border-primary">
-          <div class="card-header text-center">
-            Review Title!
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-3">
-        <div class="card border-warning">
-          <div class="card-header text-center">
-            Review Title!
-          </div>
-          <div class="card-body">
-            <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
-          </div>
-        </div>
-      </div>
+    </div>
+  <% end %>
+</div>
 
     </div>
 
