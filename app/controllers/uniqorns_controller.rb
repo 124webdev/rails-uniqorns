@@ -7,6 +7,7 @@ class UniqornsController < ApplicationController
 
   def show
     @uniqorn = Uniqorn.find(params[:id])
+    @reviews = Review.where()
   end
 
   def new

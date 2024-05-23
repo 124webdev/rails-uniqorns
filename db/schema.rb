@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_155047) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_094818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_155047) do
     t.datetime "updated_at", null: false
     t.integer "rating"
     t.string "content"
+    t.bigint "booking_id", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "uniqorns", force: :cascade do |t|
@@ -60,5 +62,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_155047) do
 
   add_foreign_key "bookings", "uniqorns"
   add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "uniqorns", "users"
 end
