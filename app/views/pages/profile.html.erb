@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="mb-5 d-flex flex-column justify-content-center">
-    <div class="my-4 d-flex  justify-content-center">
+  <div class="d-flex flex-column justify-content-center mb-5">
+    <div class="d-flex justify-content-center my-4">
       <h1>Booking requests</h1>
     </div>
-    <% 10.times do %>
+    <% @bookings.each do |booking| %>
       <div class="d-flex justify-content-center">
         <div class="card-product w-50 mb-4">
           <img
@@ -11,44 +11,89 @@
           />
           <div class="d-flex justify-content-between w-100 me-3">
             <div class="card-product-infos">
-              <h2>Uniqorn name</h2>
-              <p class="fs-5 fw-semibold">02.06.2024 - 13.06.2024</p>
+              <h2><%= booking.uniqorn.name %></h2>
+              <p class="fs-5 fw-semibold"><%= booking.start_date %>
+                -
+                <%= booking.end_date %></p>
             </div>
             <div>
               <p class="fs-5 fw-semibold"><strong class="fs-4">Total:
                 </strong>99.00$</p>
-              <div class="d-flex justify-content-evenly mt-2">
-                <%= link_to () do %>
-                  <svg
-                    class="rounded-circle p-1"
-                    style="background-color: #39efa3; height: 26px; width: 26px"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"
-                  ><!--!Font Awesome Free 6.5.2 by @fontawesome -
-                    https://fontawesome.com License -
-                    https://fontawesome.com/license/free Copyright 2024
-                    Fonticons, Inc.--><path
-                      d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-                    /></svg>
-                <% end %>
-                <%= link_to () do %>
-                  <svg
-                    class="rounded-circle p-1"
-                    style="background-color: #FF9A9E; height: 26px; width: 26px"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 384 512"
-                  ><!--!Font Awesome Free 6.5.2 by @fontawesome -
-                    https://fontawesome.com License -
-                    https://fontawesome.com/license/free Copyright 2024
-                    Fonticons, Inc.--><path
-                      d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-                    /></svg>
-                <% end %>
-              </div>
+              <% if booking.status == "pending" %>
+                <div class="d-flex justify-content-evenly mt-2">
+                  <%= link_to confirm_booking_path(booking) do %>
+                    <svg
+                      class="rounded-circle p-1"
+                      style="background-color: #39efa3; height: 26px; width: 26px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                    ><!--!Font Awesome Free 6.5.2 by @fontawesome -
+                      https://fontawesome.com License -
+                      https://fontawesome.com/license/free Copyright 2024
+                      Fonticons, Inc.--><path
+                        d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                      /></svg>
+                  <% end %>
+                  <%= link_to reject_booking_path(booking) do %>
+                    <svg
+                      class="rounded-circle p-1"
+                      style="background-color: #FF9A9E; height: 26px; width: 26px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 384 512"
+                    ><!--!Font Awesome Free 6.5.2 by @fontawesome -
+                      https://fontawesome.com License -
+                      https://fontawesome.com/license/free Copyright 2024
+                      Fonticons, Inc.--><path
+                        d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                      /></svg>
+                  <% end %>
+                </div>
+              <% elsif booking.status == "rejected" %>
+                <div class="fs-3" style="color:#FF9A9E;" >
+                <%= booking.status %>
+                </div>
+              <% elsif booking.status == "accepted" %>
+                <div class="fs-3" style="color:#39efa3;" >
+                <%= booking.status %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center my-4">
+    <h1>My uniqorns</h1>
+  </div>
+  <div class="cards mb-5">
+    <% @uniqorns.each do |uniqorn| %>
+      <%= link_to uniqorn_path(uniqorn) do %>
+        <div class="card-trip rounded-3">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
+          />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= uniqorn.name %></h2>
+              <div class="d-flex">
+                <p class="fs-5 pe-2">Age:
+                  <%= uniqorn.age %>
+                </p>
+                <p class="fs-5 px-2">•</p>
+                <p class="fs-5 pe-2">Speed:
+                  <%= uniqorn.speed %></p>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="card-trip-pricing"><%= uniqorn.price_per_day %>€</h2>
+              <p class="fs-5">Per day</p>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
