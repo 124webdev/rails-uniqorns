@@ -7,11 +7,15 @@ class UniqornsController < ApplicationController
     else
       @uniqorns = Uniqorn.all
     end
+
+    return unless params[:name].present?
+
+    @uniqorns = @uniqorns.where("name @@ :query", query: params[:name])
   end
 
   def show
     @uniqorn = Uniqorn.find(params[:id])
-    @reviews = Review.where()
+    # @reviews = Review.where
   end
 
   def new

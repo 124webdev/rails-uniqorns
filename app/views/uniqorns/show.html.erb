@@ -1,11 +1,15 @@
-<div class="container d-flex flex-column align-items-center">
+<div class="d-flex flex-column align-items-center container">
 
-  <div class="pt-3 py-3 h-50 w-75">
+  <div class="h-50 w-75 py-3 pt-3">
     <div class="w-100 d-flex">
       <div class="w-100 d-flex justify-content-center align-items-center">
         <%= cl_image_tag @uniqorn.photo.key, class: "show_image" %>
       </div>
-      <div class="mx-3 position-relative w-50 p-4 d-flex flex-column justify-content-center">
+      <div
+        class="
+          position-relative w-50 d-flex flex-column justify-content-center mx-3 p-4
+        "
+      >
         <h2 class="fs-2"><%= @uniqorn.name %></h2>
         <p class="fs-4">Age:
           <%= @uniqorn.age %>
@@ -23,14 +27,16 @@
         <p class="fs-4">Speed:
           <%= @uniqorn.speed %>
         </p>
-        <% if user_signed_in? %>
-        <%= link_to "Book Now!",
-        new_uniqorn_booking_path(@uniqorn),
-        class: "form-actions btn w-100 custom-button"%>
-        <% else %>
-        <%= link_to "Book Now!",
-        new_user_registration_path(@devise),
-        class: "form-actions btn w-100 custom-button"%>
+        <% unless @uniqorn.user == current_user %>
+          <% if user_signed_in? %>
+            <%= link_to "Book Now!",
+            new_uniqorn_booking_path(@uniqorn),
+            class: "form-actions btn w-100 custom-button" %>
+          <% else %>
+            <%= link_to "Book Now!",
+            new_user_registration_path(@devise),
+            class: "form-actions btn w-100 custom-button" %>
+          <% end %>
         <% end %>
       </div>
     </div>
