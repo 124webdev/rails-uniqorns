@@ -41,11 +41,12 @@
       <div class="col-sm-3">
         <div class="card border-info">
           <div class="card-header text-center">
-            Review Title!
+          Anonymous
           </div>
           <div class="card-body">
             <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
+            <p class="card-text"><% @review = Review.last %>
+            <%= @review.content %></p>
           </div>
         </div>
       </div>
@@ -53,11 +54,12 @@
       <div class="col-sm-3">
         <div class="card border-success">
           <div class="card-header text-center">
-            Review Title!
+            Anonymous
           </div>
           <div class="card-body">
             <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
+            <p class="card-text"><p class="card-text"><% @review = Review.last(2).first%>
+            <%= @review.content %></p>
           </div>
         </div>
       </div>
@@ -65,11 +67,12 @@
       <div class="col-sm-3">
         <div class="card border-primary">
           <div class="card-header text-center">
-            Review Title!
+            Anonymous
           </div>
           <div class="card-body">
             <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
+            <p class="card-text"><% @review = Review.last(3).first %>
+            <%= @review.content %></p>
           </div>
         </div>
       </div>
@@ -77,11 +80,12 @@
       <div class="col-sm-3">
         <div class="card border-warning">
           <div class="card-header text-center">
-            Review Title!
+            Anonymous
           </div>
           <div class="card-body">
             <h3></h3>
-            <p class="card-text">Crazy lovely reviews, becuase unicorns are crazy lovely.</p>
+            <p class="card-text"><p class="card-text"><% @review = Review.last(4).first %>
+            <%= @review.content %></p>
           </div>
         </div>
       </div>
