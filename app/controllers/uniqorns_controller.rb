@@ -10,12 +10,12 @@ class UniqornsController < ApplicationController
 
     return unless params[:name].present?
 
-    @uniqorns = @uniqorns.where("name ILIKE ?", "%#{params[:name]}%")
+    @uniqorns = @uniqorns.where("name ILIKE ?" "%#{params[:name]}%")
   end
 
   def show
     @uniqorn = Uniqorn.find(params[:id])
-    @reviews = Review.wherereviews = Review.where
+    # @reviews = Review.where
   end
 
   def new
