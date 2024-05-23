@@ -7,16 +7,6 @@
             class: "search-input",
             placeholder: "Name"
         %>
-      <%= date_field_tag :start_date,
-            params[:start_date],
-            class: "search-input",
-            placeholder: "From"
-        %>
-      <%= date_field_tag :end_date,
-        params[:end_date],
-            class: "search-input",
-            placeholder: "Until"
-        %>
       <%= submit_tag "Search", class: "search-button fa-solid" %>
     <% end %>
   <% unless user_signed_in? %>

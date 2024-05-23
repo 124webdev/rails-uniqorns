@@ -3,14 +3,6 @@
     <h1>Uniqorns</h1>
     <%= form_with url: uniqorns_path, method: :get, class: "search-bar" do %>
       <%= text_field_tag :name, params[:name], class: "search-input", placeholder: "Name" %>
-      <%= date_field_tag :start_date,
-      params[:start_date],
-      class: "search-input",
-      placeholder: "From" %>
-      <%= date_field_tag :end_date,
-      params[:end_date],
-      class: "search-input",
-      placeholder: "Until" %>
       <%= submit_tag "Search", class: "search-button fa-solid" %>
     <% end %>
   </div>
@@ -20,8 +12,8 @@
       <%= link_to uniqorn_path(uniqorn) do %>
         <div class="card-trip rounded-3">
           <div>
-          <%= cl_image_tag uniqorn.photo.key, class: "index_pictures" %>
-        </div>
+            <%= cl_image_tag uniqorn.photo.key, class: "index_pictures" %>
+          </div>
           <div class="card-trip-infos">
             <div>
               <h2><%= uniqorn.name %></h2>
