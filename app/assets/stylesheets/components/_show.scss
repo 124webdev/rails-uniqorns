@@ -1,10 +1,14 @@
-.custom-img {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-  background-size: cover;
-  background-position: center;
-  height: 60vh; /* Adjust the height as needed */
-}
+// .custom-img {
+//   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+//   background-size: cover;
+//   background-position: center;
+//   height: 60vh; /* Adjust the height as needed */
+// }
 
-.card-header {
-  color: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+// .card-header {
+//   color: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+// }
+
+.show_image {
+height: 320px;
 }
