@@ -2,7 +2,11 @@ class UniqornsController < ApplicationController
   before_action :set_uniqorn, only: [:show]
 
   def index
-    @uniqorns = Uniqorn.all
+    if user_signed_in?
+      @uniqorns = Uniqorn.where.not(user: current_user.id)
+    else
+      @uniqorns = Uniqorn.all
+    end
   end
 
   def show
