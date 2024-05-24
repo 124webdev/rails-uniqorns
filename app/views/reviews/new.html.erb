@@ -2,9 +2,11 @@
   <div class="p-2">
 
     <%= simple_form_for [ @booking, @review] do |f| %>
+      <div class="form-inputs ">
+        <%= f.input :content, :placeholder => "Content" %>
+      </div>
       <div class="form-inputs">
-        <%= f.input :content, :placeholder => "Title, Content" %>
-        <%= f.input :rating %>
+        <%= f.input :rating, collection: %i(1 2 3 4 5) %>
       </div>
 
       <div class="form-actions btn btn-lg custom-button">
