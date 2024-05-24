@@ -44,4 +44,14 @@
       class: "form-actions btn btn-lg custom-button" %>
     <% end %>
   </div>
+
+  <div id="special-popup" style="display: none;">
+  <button id="close-popup">&times;</button>
+  <h1>This week’s special:<br> Rent a Wagon for your Uniqorn</h1>
+  <div class="image-container">
+    <%= image_tag "wagon.png", alt: "Wagon" %>
+    <%= link_to "Book Now!", new_user_registration_path(@devise), class: "form-actions btn custom-button" %>
+  </div>
+
+</div>
 </div>
