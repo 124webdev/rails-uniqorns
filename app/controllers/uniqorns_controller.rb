@@ -10,8 +10,7 @@ class UniqornsController < ApplicationController
   end
 
   def show
-    @uniqorn = Uniqorn.find(params[:id])
-    # @reviews = Review.where
+    @reviews = Review.where(booking: @uniqorn.bookings)
   end
 
   def new
