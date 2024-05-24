@@ -45,8 +45,8 @@
     <% end %>
   </div>
 
-  <div id="special-popup" style="display: none;">
-  <button id="close-popup">&times;</button>
+  <div id="special-popup" class="d-none" data-controller="popup" data-popup-target="popupwindow">
+  <button id="close-popup" data-popup-target="close" data-action="click->popup#closePopUp">&times;</button>
   <h1>This week’s special:<br> Rent a Wagon for your Uniqorn</h1>
   <div class="image-container">
     <%= image_tag "wagon.png", alt: "Wagon" %>
