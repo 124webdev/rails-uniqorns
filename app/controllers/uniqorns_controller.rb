@@ -1,21 +1,16 @@
 class UniqornsController < ApplicationController
-  before_action :set_uniqorn, only: [:show]
+  before_action :set_uniqorn, only: [:show, :destroy]
 
   def index
-    if user_signed_in?
-      @uniqorns = Uniqorn.where.not(user: current_user.id)
-    else
-      @uniqorns = Uniqorn.all
-    end
+    @uniqorns = Uniqorn.all
 
     return unless params[:name].present?
 
-    @uniqorns = @uniqorns.where("name @@ :query", query: params[:name])
+    @uniqorns = Uniqorn.search_by_name(params[:name])
   end
 
   def show
-    @uniqorn = Uniqorn.find(params[:id])
-    # @reviews = Review.where
+    @reviews = Review.where(booking: @uniqorn.bookings)
   end
 
   def new
@@ -32,6 +27,12 @@ class UniqornsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @uniqorn.destroy
+    redirect_to pages_profile_path
+  end
+
   private
 
   def set_uniqorn
@@ -41,4 +42,5 @@ class UniqornsController < ApplicationController
   def uniqorn_params
     params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed, :photo)
   end
+  
 end

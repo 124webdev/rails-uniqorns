@@ -2,17 +2,7 @@
   <%= image_tag "logo_uniqorn_without_text.png", alt: "Logo", class: "uniqorn-pic" %>
   <h1 class="banner-text">Unique Unicorns for Rent</h1>
   <%= form_with url: uniqorns_path, method: :get, class: "search-bar" do %>
-      <%= text_field_tag :name,
-            params[:name],
-            class: "search-input",
-            placeholder: "Name"
-        %>
-      <%= submit_tag "Search", class: "search-button fa-solid" %>
-    <% end %>
-  <% unless user_signed_in? %>
-    <div class="d-flex grid gap-5">
-    <%= link_to "Log In", new_user_session_path, class: "btn m-4 btn-lg custom-button" %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn m-4 btn-lg custom-button" %>
+    <%= text_field_tag :name, params[:name], class: "search-input", placeholder: "Name" %>
+    <%= submit_tag "Search", class: "search-button fa-solid" %>
   <% end %>
-    </div>
-  </div>
+</div>

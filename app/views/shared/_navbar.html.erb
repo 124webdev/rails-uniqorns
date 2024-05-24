@@ -1,24 +1,36 @@
+<% navuniqorns = Uniqorn.where(user: current_user) %>
+<% navbookings = Booking.where(uniqorn: navuniqorns) %>
+<% navbookings = navbookings.where(status: "pending") %>
 <div class="navbar sticky-top">
   <div class="logo">
     <%= link_to root_path do %>
       <%= image_tag "uniqorn_logo_text.png", alt: "Logo" %>
-   <% end %>
+    <% end %>
   </div>
   <div class="right-section">
     <div class="tabs">
       <%= link_to "See all unicorns", uniqorns_path %>
       <% unless user_signed_in? %>
         <%= link_to "Log In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
       <% if user_signed_in? %>
         <%= link_to "Bookings", bookings_path %>
         <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
-        <div class="pt-2">
+        <div class="position-relative pt-2">
           <%= link_to pages_profile_path do %>
             <img
               src='https://kitt.lewagon.com/placeholder/users/arthur-littm'
               class="avatar"
             />
+          <% end %>
+          <% if navbookings.length > 0 %>
+            <div
+              class="
+                position-absolute bg-primary fs-4 rounded-circle border-light border p-1
+              "
+              style="width: 15px; height: 15px; bottom: 2px; left: 15px;"
+            ></div>
           <% end %>
         </div>
       <% end %>

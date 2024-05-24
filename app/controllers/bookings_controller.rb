@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @user = User.find(current_user.id)
-    @bookings = Booking.where(user: @user)
+    @bookings = Booking.where(user: current_user)
   end
 
   def show

@@ -6,9 +6,7 @@
     <% @bookings.each do |booking| %>
       <div class="d-flex justify-content-center">
         <div class="card-product w-50 mb-4">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZIvadmq4OEXE0kFfQvXE694-kCfr45OW6w&s"
-          />
+          <%= cl_image_tag booking.uniqorn.photo.key %>
           <div class="d-flex justify-content-between w-100 me-3">
             <div class="card-product-infos">
               <h2><%= booking.uniqorn.name %></h2>
