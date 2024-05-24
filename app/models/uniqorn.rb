@@ -4,6 +4,13 @@ class Uniqorn < ApplicationRecord
   has_many :bookings
   has_one_attached :photo
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+                  against: :name,
+                  using: {
+                    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+                  }
+
   validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :price_per_day, presence: true,
                             comparison: { greater_than_or_equal_to: 1, message: "cannot be negative value" }

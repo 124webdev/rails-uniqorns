@@ -6,7 +6,7 @@ class UniqornsController < ApplicationController
 
     return unless params[:name].present?
 
-    @uniqorns = @uniqorns.where("name @@ :query", query: params[:name])
+    @uniqorns = Uniqorn.search_by_name(params[:name])
   end
 
   def show
