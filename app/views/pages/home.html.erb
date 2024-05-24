@@ -10,9 +10,6 @@
       <%= submit_tag "Search", class: "search-button fa-solid" %>
     <% end %>
   <% unless user_signed_in? %>
-    <div class="d-flex grid gap-5">
-    <%= link_to "Log In", new_user_session_path, class: "btn m-4 btn-lg custom-button" %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "btn m-4 btn-lg custom-button" %>
   <% end %>
     </div>
   </div>
