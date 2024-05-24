@@ -1,10 +1,12 @@
 class PagesController < ApplicationController
   def home
+    @uniqorns = Uniqorn.where(user: current_user)
+    @bookings = Booking.where(uniqorn: @uniqorns)
+    @bookings = @bookings.where(status: "pending")
   end
 
   def profile
-    @user = User.find(current_user.id)
-    @uniqorns = Uniqorn.where(user: @user)
+    @uniqorns = Uniqorn.where(user: current_user)
     @bookings = Booking.where(uniqorn: @uniqorns)
   end
 

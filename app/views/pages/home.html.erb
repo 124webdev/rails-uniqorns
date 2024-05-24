@@ -2,14 +2,8 @@
   <%= image_tag "logo_uniqorn_without_text.png", alt: "Logo", class: "uniqorn-pic" %>
   <h1 class="banner-text">Unique Unicorns for Rent</h1>
   <%= form_with url: uniqorns_path, method: :get, class: "search-bar" do %>
-      <%= text_field_tag :name,
-            params[:name],
-            class: "search-input",
-            placeholder: "Name"
-        %>
-      <%= submit_tag "Search", class: "search-button fa-solid" %>
-    <% end %>
-  <% unless user_signed_in? %>
+    <%= text_field_tag :name, params[:name], class: "search-input", placeholder: "Name" %>
+    <%= submit_tag "Search", class: "search-button fa-solid" %>
   <% end %>
-    </div>
-  </div>
+  <%= @bookings.length %>
+</div>
