@@ -37,7 +37,6 @@ class UniqornsController < ApplicationController
     @uniqorn.destroy
     redirect_to pages_profile_path
   end
-end
 
   private
 
@@ -48,3 +47,5 @@ end
   def uniqorn_params
     params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed, :photo)
   end
+  
+end

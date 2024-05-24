@@ -30,8 +30,7 @@
         <% if @uniqorn.user == current_user %>
           <%= link_to 'Delete Unicorn', uniqorn_path(@uniqorn),
           data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "form-actions btn w-100 custom-button" %>
-        <% else %>
-          <% if user_signed_in? %>
+        <% elsif user_signed_in? %>
             <%= link_to "Book Now!",
             new_uniqorn_booking_path(@uniqorn),
             class: "form-actions btn w-100 custom-button" %>
@@ -40,7 +39,6 @@
             new_user_registration_path(@devise),
             class: "form-actions btn w-100 custom-button" %>
           <% end %>
-        <% end %>
       </div>
     </div>
     <h1 class="mt-4">Reviews</h1>
