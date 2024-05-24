@@ -2,11 +2,7 @@ class UniqornsController < ApplicationController
   before_action :set_uniqorn, only: [:show]
 
   def index
-    if user_signed_in?
-      @uniqorns = Uniqorn.where.not(user: current_user.id)
-    else
-      @uniqorns = Uniqorn.all
-    end
+    @uniqorns = Uniqorn.all
 
     return unless params[:name].present?
 
@@ -14,8 +10,7 @@ class UniqornsController < ApplicationController
   end
 
   def show
-    @uniqorn = Uniqorn.find(params[:id])
-    # @reviews = Review.where
+    @reviews = Review.where(booking: @uniqorn.bookings)
   end
 
   def new

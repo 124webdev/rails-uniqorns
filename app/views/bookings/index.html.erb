@@ -33,8 +33,10 @@
                 <div class="fs-3" style="color:#39efa3;" >
                 <%= booking.status %>
                 </div>
+                <% unless booking.review %>
       <%= link_to new_booking_review_path(booking) do %>
         <div class="fs-5 text-decoration-underline" >Leave a review!</div>
+      <% end %>
       <% end %>
               <% end %>
             </div>
