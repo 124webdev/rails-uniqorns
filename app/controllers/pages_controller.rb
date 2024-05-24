@@ -3,8 +3,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = User.find(current_user.id)
-    @uniqorns = Uniqorn.where(user: @user)
+    @uniqorns = Uniqorn.where(user: current_user)
     @bookings = Booking.where(uniqorn: @uniqorns)
   end
 
