@@ -27,18 +27,26 @@
         <p class="fs-4">Speed:
           <%= @uniqorn.speed %>
         </p>
-        <% if @uniqorn.user == current_user %>
-          <%= link_to 'Delete Unicorn', uniqorn_path(@uniqorn),
-          data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "form-actions btn w-100 custom-button" %>
+        <% if @uniqorn.user == current_user && @uniqorn.bookings.length > 0 %>
+          <div class="fs-4">There are open bookings for
+            <%= @uniqorn.name %></div>
+        <% elsif @uniqorn.user == current_user %>
+          <%= link_to "Delete Unicorn",
+          uniqorn_path(@uniqorn),
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?",
+          },
+          class: "form-actions btn w-100 custom-button" %>
         <% elsif user_signed_in? %>
-            <%= link_to "Book Now!",
-            new_uniqorn_booking_path(@uniqorn),
-            class: "form-actions btn w-100 custom-button" %>
-          <% else %>
-            <%= link_to "Book Now!",
-            new_user_registration_path(@devise),
-            class: "form-actions btn w-100 custom-button" %>
-          <% end %>
+          <%= link_to "Book Now!",
+          new_uniqorn_booking_path(@uniqorn),
+          class: "form-actions btn w-100 custom-button" %>
+        <% else %>
+          <%= link_to "Book Now!",
+          new_user_registration_path(@devise),
+          class: "form-actions btn w-100 custom-button" %>
+        <% end %>
       </div>
     </div>
     <h1 class="mt-4">Reviews</h1>
