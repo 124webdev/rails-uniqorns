@@ -12,7 +12,7 @@ export default class extends Controller {
 
     setTimeout(function() {
       popup.classList.remove('d-none');
-    }, 1000);
+    }, 3000);
       }
 
   closePopUp() {
