@@ -1,5 +1,5 @@
 class UniqornsController < ApplicationController
-  before_action :set_uniqorn, only: [:show]
+  before_action :set_uniqorn, only: [:show, :destroy]
 
   def index
     @uniqorns = Uniqorn.all
@@ -27,6 +27,12 @@ class UniqornsController < ApplicationController
     end
   end
 
+
+  def destroy
+    @uniqorn.destroy
+    redirect_to pages_profile_path
+  end
+
   private
 
   def set_uniqorn
@@ -36,4 +42,5 @@ class UniqornsController < ApplicationController
   def uniqorn_params
     params.require(:uniqorn).permit(:id, :price_per_day, :name, :age, :can_fly, :color, :speed, :photo)
   end
+  
 end
