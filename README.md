@@ -1,1 +1,4 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+![Uniqorns](uniqorn_logo_text.png)
+# Uniqorns
+is a Web Application to rent or rent out Unicorns.
+![](https://github.com/124webdev/rails-uniqorns/UniqornsGIF.gif)
